@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import { personslist } from '../data';
-import '../style.css';
 const personslist = [
   {
     id: 1,
@@ -38,27 +35,3 @@ const personslist = [
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg',
   },
 ];
-
-const List = () => {
-  const [people, seppeople] = useState(personslist);
-  const removeitem = (id) => {
-    const newpeople = people.filter((persons) => persons.id !== id);
-    seppeople(newpeople);
-  };
-  return (
-    <div>
-      {people.map((persons) => {
-        console.log(persons);
-        const { id, name, image, age } = persons;
-        return (
-          <div key={id}>
-            <p>{name} </p>
-            <button onClick={() => removeitem(id)}> remove</button>
-          </div>
-        );
-      })}
-      <button onClick={() => seppeople([])}>clearAll</button>
-    </div>
-  );
-};
-export default List;
